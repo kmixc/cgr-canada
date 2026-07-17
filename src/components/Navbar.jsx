@@ -84,7 +84,7 @@ export default function Navbar() {
         {/* Mobile Navbar */}
         <div className="md:hidden flex items-center justify-between px-5 h-18 py-4">
           <Link to="/">
-            <img src={LOGO} alt="CGR Canada" className="h-12 w-auto" />
+            <img src={LOGO} alt="CGR Canada" className="h-16 w-auto" />
           </Link>
           <button
             onClick={() => setMobileOpen(v => !v)}

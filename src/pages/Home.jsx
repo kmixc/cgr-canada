@@ -24,15 +24,17 @@ export default function Home() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            className="font-heading font-black text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[13rem] tracking-widest uppercase text-white leading-none drop-shadow-lg"
+            className="font-heading font-black text-[31vw] sm:text-8xl md:text-9xl lg:text-[11rem] xl:text-[13rem] tracking-[0.05em] sm:tracking-widest uppercase text-white leading-[1.15] sm:leading-none drop-shadow-lg"
           >
-            GLASS&nbsp;-&nbsp;METAL
+            <span className="block sm:inline">GLASS</span>
+            <span className="hidden sm:inline">&nbsp;-&nbsp;</span>
+            <span className="block sm:inline">METAL</span>
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="mt-20 md:mt-32 flex flex-wrap items-center justify-center gap-x-20 gap-y-12 sm:gap-x-36 md:gap-x-56"
+            className="mt-16 sm:mt-20 md:mt-32 flex flex-wrap items-center justify-center gap-x-10 gap-y-12 sm:gap-x-36 md:gap-x-56"
           >
             <Link to="/glass-services" className="paint-btn">
               <img src={paintImg} alt="" className="paint-btn-bg -rotate-2" />
