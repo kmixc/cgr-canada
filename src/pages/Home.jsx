@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import paintImg from '../assets/img/paint.png'
@@ -5,17 +6,43 @@ import paintImg from '../assets/img/paint.png'
 const VIDEO_URL = 'https://cgrcanada.com/wp-content/uploads/2026/03/CGR-Video.mp4'
 
 export default function Home() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // Mobile browsers only autoplay videos whose muted ATTRIBUTE is set on the
+    // DOM element; React's `muted` prop doesn't guarantee that.
+    video.muted = true
+    video.defaultMuted = true
+    video.setAttribute('muted', '')
+
+    const tryPlay = () => {
+      const p = video.play()
+      if (p) p.catch(() => {})
+    }
+    tryPlay()
+
+    // If autoplay was still blocked (e.g. iOS Low Power Mode), start on first tap.
+    const onTouch = () => tryPlay()
+    window.addEventListener('touchstart', onTouch, { once: true, passive: true })
+    return () => window.removeEventListener('touchstart', onTouch)
+  }, [])
+
   return (
     <main>
       {/* ── Hero Video ── */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         <video
+          ref={videoRef}
           className="hero-video"
           src={VIDEO_URL}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
         />
         <div className="absolute inset-0 bg-cgr-black/25" />
 
