@@ -1,0 +1,716 @@
+.gs-page {
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.gs-container {
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.gs-hero {
+    position: relative;
+    min-height: 72vh;
+    min-height: 72svh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gs-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
+}
+
+.gs-hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.gs-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 13vw, 11rem);
+    letter-spacing: 0.06em;
+    line-height: 0.9;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.gs-subtitle {
+    margin: 16px 0 32px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: clamp(1.1rem, 2.8vw, 2rem);
+    font-weight: 700;
+}
+
+.gs-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.gs-cta-btn {
+    background: #F6D51F;
+    color: #000;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 18px 44px;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.gs-call-text {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Bebas Neue', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.1rem, 2.8vw, 2.2rem);
+    font-weight: 700;
+}
+
+.gs-call-text a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.gs-transition-wrap {
+    background: transparent;
+    line-height: 0;
+    position: relative;
+    z-index: 1;
+    margin-top: -120px;
+}
+
+.gs-transition {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    mix-blend-mode: multiply;
+}
+
+.gs-services {
+    padding: 54px 0 72px;
+    background: #000;
+}
+
+.gs-services-list {
+    max-width: 1160px;
+}
+
+.gs-service-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0;
+    transition: background 0.35s ease;
+}
+
+.gs-service-item:last-child {
+    border-bottom: 0;
+}
+
+.gs-service-head {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    width: 100%;
+    padding: 18px 12px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.35s ease;
+}
+
+.gs-service-head:hover .gs-service-number {
+    color: rgba(246, 213, 31, 0.7);
+}
+
+.gs-service-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    color: rgba(246, 213, 31, 0.35);
+    font-size: 3rem;
+    line-height: 0.9;
+    flex-shrink: 0;
+    transition: color 0.35s ease;
+}
+
+.gs-service-head h2 {
+    margin: 0;
+    flex: 1;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    color: #fff;
+    transition: color 0.35s ease;
+}
+
+.gs-chevron {
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #F6D51F;
+    border-bottom: 2px solid #F6D51F;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-right: 4px;
+}
+
+.gs-service-item--open .gs-chevron {
+    transform: rotate(-135deg);
+    border-right-color: #000;
+    border-bottom-color: #000;
+}
+
+.gs-service-item--open {
+    background: #F6D51F;
+    border-bottom-color: transparent;
+}
+
+.gs-service-item--open .gs-service-head {
+    color: #000;
+}
+
+.gs-service-item--open .gs-service-head h2 {
+    color: #000;
+}
+
+.gs-service-item--open .gs-service-number {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.gs-service-item--open .gs-service-body p {
+    color: #000;
+}
+
+.gs-service-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.45s ease, padding 0.35s ease;
+}
+
+.gs-service-item--open .gs-service-body {
+    padding: 0 12px;
+}
+
+.gs-service-item p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+    font-size: 1.35rem;
+    padding: 0 0 16px 58px;
+    text-transform: none;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: normal;
+}
+
+.gs-how,
+.gs-why {
+    background: #000;
+    padding: 78px 0;
+}
+
+.gs-how {
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    padding: 80px 0 100px;
+}
+
+.gs-how-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+}
+
+.gs-how .gs-container {
+    position: relative;
+    z-index: 1;
+}
+
+.gs-how-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.gs-how-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 18px;
+    line-height: 1;
+}
+
+.gs-how-line {
+    width: min(600px, 70%);
+    height: 4px;
+    background: #F6D51F;
+    margin: 0 auto;
+}
+
+.gs-how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 32px;
+    align-items: start;
+}
+
+.gs-how-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: #F6D51F;
+    margin: 0 0 12px;
+}
+
+.gs-how-card p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.65;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0;
+}
+
+.gs-how-card--1 {
+    margin-top: 0;
+    transform: translateY(-40px);
+}
+
+.gs-how-card--2 {
+    margin-top: 0;
+    transform: translateY(40px);
+}
+
+.gs-how-card--3 {
+    margin-top: 0;
+    transform: translateY(120px);
+}
+
+.gs-stats {
+    position: relative;
+    z-index: 1;
+    width: min(1500px, calc(100% - 32px));
+    margin: 180px auto 0;
+    padding: 64px 56px 72px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    text-align: center;
+}
+
+.gs-stat-number {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    letter-spacing: 0.04em;
+    line-height: 0.9;
+    color: #fff;
+}
+
+.gs-stat-label {
+    display: block;
+    margin-top: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: clamp(1.2rem, 2.4vw, 2rem);
+    color: #fff;
+}
+
+.gs-section-title {
+    margin: 0 0 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+}
+
+.gs-how-grid,
+.gs-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.gs-why {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 90px 0 110px;
+}
+
+.gs-why-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.gs-why .gs-container {
+    position: relative;
+    z-index: 1;
+}
+
+.gs-why-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.gs-why-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 18px;
+    line-height: 1;
+}
+
+.gs-why-line {
+    width: min(600px, 70%);
+    height: 4px;
+    background: #F6D51F;
+    margin: 0 auto;
+}
+
+.gs-why-grid article {
+    text-align: center;
+}
+
+.gs-why-grid h3 {
+    margin: 0 0 22px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    font-weight: 700;
+    color: #fff;
+}
+
+.gs-why-grid p {
+    margin: 0 auto;
+    max-width: 380px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 1.05rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.gs-certified-transition {
+    background: #fff;
+    line-height: 0;
+}
+
+.gs-certified-transition-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+}
+
+.gs-certified {
+    background: #fff;
+    color: #000;
+    padding: 36px 0 82px;
+}
+
+.gs-certified-content {
+    max-width: 980px;
+    text-align: center;
+}
+
+.gs-certified-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.gs-certified-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.6rem, 6.3vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #000;
+    margin: 0 0 18px;
+    line-height: 1;
+}
+
+.gs-certified-line {
+    width: min(600px, 70%);
+    height: 4px;
+    background: #F6D51F;
+    margin: 0 auto;
+}
+
+.gs-certified-content p {
+    margin: 0 auto 26px;
+    max-width: 760px;
+    color: rgba(0, 0, 0, 0.75);
+    line-height: 1.7;
+    font-size: 1.35rem;
+}
+
+.gs-certified-content strong {
+    display: inline-block;
+    color: #000;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+
+    .gs-how-grid,
+    .gs-why-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .gs-container,
+    .gs-hero-content {
+        width: min(1160px, calc(100% - 30px));
+    }
+
+    .gs-hero {
+        min-height: 66vh;
+        min-height: 66svh;
+    }
+
+    .gs-hero-content {
+        padding: 110px 0 54px;
+    }
+
+    .gs-transition-wrap {
+        margin-top: -80px;
+    }
+
+    .gs-transition {
+        height: 110px;
+        object-position: center top;
+    }
+
+    .gs-service-item p {
+        padding-left: 0;
+        padding-bottom: 20px;
+        font-size: 1.05rem;
+        line-height: 1.65;
+    }
+
+    .gs-service-head {
+        gap: 10px;
+    }
+
+    .gs-service-number {
+        font-size: 2.2rem;
+    }
+
+    .gs-service-head h2 {
+        font-size: 1.3rem;
+    }
+
+    .gs-how-grid article,
+    .gs-why-grid article {
+        padding: 20px;
+    }
+
+    .gs-how-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .gs-how-card--1,
+    .gs-how-card--2,
+    .gs-how-card--3 {
+        margin-top: 0;
+        transform: none;
+    }
+
+    .gs-stats {
+        margin-top: 54px;
+        padding: 44px 24px 52px;
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .gs-how-title {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+
+    .gs-certified {
+        padding: 24px 0 60px;
+    }
+
+    .gs-certified-header {
+        margin-bottom: 32px;
+    }
+
+    .gs-certified-title {
+        white-space: normal;
+        font-size: clamp(2rem, 8.5vw, 3rem);
+        line-height: 1.1;
+    }
+
+    .gs-certified-content p {
+        font-size: 1.1rem;
+    }
+
+    .gs-certified-transition-img {
+        height: 120px;
+    }
+
+    .gs-how,
+    .gs-why {
+        padding: 54px 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .gs-container,
+    .gs-hero-content {
+        width: calc(100% - 32px);
+    }
+
+    .gs-hero {
+        min-height: 75vh;
+        min-height: 75svh;
+    }
+
+    .gs-hero-content {
+        padding: 100px 0 44px;
+    }
+
+    .gs-hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4rem);
+        letter-spacing: 0.04em;
+    }
+
+    .gs-subtitle {
+        margin: 12px 0 24px;
+        font-size: 1rem;
+        letter-spacing: 0.14em;
+    }
+
+    .gs-transition-wrap {
+        margin-top: -60px;
+    }
+
+    .gs-transition {
+        height: 80px;
+    }
+
+    .gs-cta-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .gs-cta-btn {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        padding: 16px 24px;
+        text-align: center;
+    }
+
+    .gs-call-text {
+        font-size: 1rem;
+    }
+
+    .gs-services {
+        padding: 36px 0 54px;
+    }
+
+    .gs-service-head {
+        padding: 16px 4px;
+        gap: 12px;
+    }
+
+    .gs-service-number {
+        font-size: 1.8rem;
+    }
+
+    .gs-service-head h2 {
+        font-size: 1.15rem;
+        letter-spacing: 0.05em;
+    }
+
+    .gs-service-item--open .gs-service-body {
+        padding: 0 4px;
+    }
+
+    .gs-service-item p {
+        font-size: 1rem;
+    }
+
+    .gs-how-header,
+    .gs-why-header {
+        margin-bottom: 40px;
+    }
+
+    .gs-how-grid article,
+    .gs-why-grid article {
+        padding: 12px 4px;
+    }
+
+    .gs-stats {
+        width: calc(100% - 16px);
+        margin-top: 40px;
+        padding: 40px 20px 48px;
+        gap: 24px;
+    }
+
+    .gs-stat-number {
+        font-size: 2.8rem;
+    }
+
+    .gs-stat-label {
+        font-size: 1.05rem;
+    }
+
+    .gs-certified-transition-img {
+        height: 90px;
+    }
+
+    .gs-certified-content p {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .gs-certified-content strong {
+        font-size: 1.05rem;
+    }
+
+    .gs-why-grid p {
+        font-size: 1rem;
+    }
+}

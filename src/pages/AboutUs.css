@@ -1,0 +1,65 @@
+.gs-origin {
+    background: #000;
+    padding: 54px 0 84px;
+}
+
+.gs-origin-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.gs-origin-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 18px;
+    line-height: 1;
+}
+
+.gs-origin-line {
+    width: min(320px, 60%);
+    height: 4px;
+    background: #F6D51F;
+    margin-bottom: 32px;
+}
+
+.gs-origin-text p {
+    margin: 0 0 22px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    font-size: 1.15rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.gs-origin-text p:last-child {
+    margin-bottom: 0;
+}
+
+.gs-origin-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .gs-origin-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .gs-origin {
+        padding: 40px 0 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gs-origin-text p {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+}

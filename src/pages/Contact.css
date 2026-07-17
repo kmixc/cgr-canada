@@ -1,0 +1,284 @@
+.ct-page {
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.ct-container {
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+/* ---------- Hero ---------- */
+
+.ct-hero {
+    position: relative;
+    min-height: 88vh;
+    min-height: 88svh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.ct-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
+}
+
+.ct-hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 140px 0 100px;
+}
+
+.ct-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 8.5rem);
+    letter-spacing: 0.06em;
+    line-height: 0.9;
+    margin: 0 0 24px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.ct-hero-desc {
+    max-width: 620px;
+    margin: 0 0 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.ct-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.ct-info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2vw, 1.5rem);
+    transition: color 0.3s ease;
+    width: fit-content;
+}
+
+a.ct-info-item:hover {
+    color: #F6D51F;
+}
+
+.ct-info-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    fill: #fff;
+}
+
+/* ---------- Transition (same treatment as Glass Services) ---------- */
+
+.ct-transition-wrap {
+    background: transparent;
+    line-height: 0;
+    position: relative;
+    z-index: 1;
+    margin-top: -120px;
+}
+
+.ct-transition {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    mix-blend-mode: multiply;
+}
+
+/* ---------- Areas We Serve ---------- */
+
+.ct-areas {
+    background: #000;
+    padding: 40px 0 100px;
+}
+
+.ct-areas-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.ct-areas-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 18px;
+    line-height: 1;
+}
+
+.ct-areas-line {
+    width: min(600px, 70%);
+    height: 4px;
+    background: #F6D51F;
+    margin: 0 auto;
+}
+
+.ct-areas-intro {
+    max-width: 700px;
+    margin: 0 auto 64px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.ct-areas-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.ct-areas-col h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 24px;
+    line-height: 1;
+}
+
+.ct-areas-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ct-areas-col li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ct-areas-map {
+    display: flex;
+    justify-content: center;
+}
+
+.ct-areas-map img {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+    .ct-areas-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .ct-areas-map {
+        order: -1;
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .ct-container,
+    .ct-hero-content {
+        width: min(1160px, calc(100% - 30px));
+    }
+
+    .ct-hero {
+        min-height: 78vh;
+        min-height: 78svh;
+    }
+
+    .ct-hero-content {
+        padding: 120px 0 70px;
+    }
+
+    .ct-transition-wrap {
+        margin-top: -80px;
+    }
+
+    .ct-transition {
+        height: 110px;
+    }
+
+    .ct-info-list {
+        gap: 24px;
+    }
+
+    .ct-info-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ct-areas {
+        padding: 24px 0 70px;
+    }
+
+    .ct-areas-intro {
+        margin-bottom: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .ct-container,
+    .ct-hero-content {
+        width: calc(100% - 32px);
+    }
+
+    .ct-hero h1 {
+        font-size: clamp(2.8rem, 15vw, 4rem);
+        letter-spacing: 0.04em;
+    }
+
+    .ct-hero-desc {
+        margin-bottom: 36px;
+    }
+
+    .ct-transition-wrap {
+        margin-top: -60px;
+    }
+
+    .ct-transition {
+        height: 80px;
+    }
+
+    .ct-info-item {
+        font-size: 0.95rem;
+        gap: 14px;
+        align-items: flex-start;
+    }
+
+    .ct-info-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .ct-areas-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .ct-areas-title {
+        font-size: clamp(3rem, 12vw, 4.5rem);
+    }
+}
