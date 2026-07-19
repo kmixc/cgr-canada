@@ -15,10 +15,21 @@ const BASE_OLD = '/img/'
 const BASE_2025 = '/img/'
 const BASE_2026_04 = '/img/'
 
+const railingImgs = Object.values(
+  import.meta.glob('../assets/img/glassrailings/*', { eager: true, import: 'default' })
+)
+const enclosureImgs = Object.values(
+  import.meta.glob('../assets/img/glassenclosures/*', { eager: true, import: 'default' })
+)
+const metalworkImgs = Object.values(
+  import.meta.glob('../assets/img/metalwork/*', { eager: true, import: 'default' })
+)
+
 const categories = [
   {
     label: 'GLASS RAILINGS',
     images: [
+      ...railingImgs,
       BASE + '1.jpg', BASE + '2.jpg', BASE + '3.jpg',
       BASE + '4.jpg', BASE + '5.jpg', BASE + '6.jpg',
       BASE + '7.jpg', BASE + '8.jpg', BASE + '9.jpg',
@@ -37,6 +48,7 @@ const categories = [
   {
     label: 'GLASS ENCLOSURES',
     images: [
+      ...enclosureImgs,
       BASE_2025 + 'garage-glass-enclosure.jpg',
       BASE_OLD + '3-14.jpg', BASE_OLD + '5-1.jpg', BASE_OLD + '1-14.jpg',
       BASE_OLD + '21.jpg', BASE_OLD + '18.jpg', BASE_OLD + '19.jpg',
@@ -54,6 +66,7 @@ const categories = [
   {
     label: 'METAL WORK',
     images: [
+      ...metalworkImgs,
       BASE + 'Metal-1.jpg', BASE + 'Metal-2.jpg', BASE + 'Metal-3.jpg',
       BASE + 'Metal-4.jpg', BASE + 'Metal-5.jpg', BASE_2026_04 + 'mono-beam.jpg',
       BASE + 'Metal-7.jpg', BASE + 'Metal-8.jpg', BASE + 'Metal-9.jpg',

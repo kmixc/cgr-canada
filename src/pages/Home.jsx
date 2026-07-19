@@ -2,8 +2,9 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import paintImg from '../assets/img/paint.png'
+import heroVideo from '../assets/img/cgr_website.mp4'
 
-const VIDEO_URL = 'https://cgrcanada.com/wp-content/uploads/2026/03/CGR-Video.mp4'
+const VIDEO_URL = heroVideo
 
 export default function Home() {
   const videoRef = useRef(null)
