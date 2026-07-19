@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageHero from '../components/PageHero'
-import HowWeWork from '../components/HowWeWork'
-import CertifiedSection from '../components/CertifiedSection'
 import { useInView } from '../hooks/useInView'
 import projectsHero from '../assets/img/projects.jpg'
 import transitionImg from '../assets/img/transiton_2.png'
@@ -10,18 +8,18 @@ import transitionImg from '../assets/img/transiton_2.png'
 const HERO_IMG = projectsHero
 const TRANSITION_2 = transitionImg
 
-const BASE = '/img/'
-const BASE_OLD = '/img/'
-const BASE_2025 = '/img/'
-const BASE_2026_04 = '/img/'
+const sortImgs = (modules) =>
+  Object.entries(modules)
+    .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+    .map(([, src]) => src)
 
-const railingImgs = Object.values(
+const railingImgs = sortImgs(
   import.meta.glob('../assets/img/glassrailings/*', { eager: true, import: 'default' })
 )
-const enclosureImgs = Object.values(
+const enclosureImgs = sortImgs(
   import.meta.glob('../assets/img/glassenclosures/*', { eager: true, import: 'default' })
 )
-const metalworkImgs = Object.values(
+const metalworkImgs = sortImgs(
   import.meta.glob('../assets/img/metalwork/*', { eager: true, import: 'default' })
 )
 
@@ -30,57 +28,18 @@ const categories = [
     label: 'GLASS RAILINGS',
     images: [
       ...railingImgs,
-      BASE + '1.jpg', BASE + '2.jpg', BASE + '3.jpg',
-      BASE + '4.jpg', BASE + '5.jpg', BASE + '6.jpg',
-      BASE + '7.jpg', BASE + '8.jpg', BASE + '9.jpg',
-      BASE + 'Ext-1.jpg', BASE + 'Ext-2.jpg', BASE + 'Ext-3.jpg',
-      BASE + 'Ext-4.jpg', BASE + 'Ext-5.jpg', BASE + 'Ext-6.jpg',
-      BASE + 'Ext-7.jpg', BASE + 'Ext-8.jpg', BASE + 'Ext-9.jpg',
-      BASE + 'Ext-midrise-1.jpg', BASE + 'Ext-midrise-2.jpg', BASE + 'Ext-midrise-3.jpg',
-      BASE + 'commercial-1.jpg', BASE + 'commercial-2.jpg', BASE + 'commercial-3.jpg',
-      BASE + 'commercial-4.jpg', BASE + 'commercial-5.jpg', BASE + 'commercial-6.jpg',
-      BASE + 'commercial-7.jpg', BASE + 'commercial-8.jpg', BASE + 'Commercial-9.jpg',
-      BASE + 'curved-2.jpg', BASE + 'curved-3.jpg', BASE + 'curved-4.jpg',
-      BASE + 'curved-5.jpg', BASE + 'curved-6.jpg', BASE + 'curved-7.jpg',
-      BASE + 'curved-8.jpg', BASE + 'curved-9.jpg', BASE + 'Curved-0.jpg',
     ],
   },
   {
     label: 'GLASS ENCLOSURES',
     images: [
       ...enclosureImgs,
-      BASE_2025 + 'garage-glass-enclosure.jpg',
-      BASE_OLD + '3-14.jpg', BASE_OLD + '5-1.jpg', BASE_OLD + '1-14.jpg',
-      BASE_OLD + '21.jpg', BASE_OLD + '18.jpg', BASE_OLD + '19.jpg',
-      BASE + 'Shower-5.jpg', BASE + 'Shower-1.jpg', BASE + 'Shower-2.jpg',
-      BASE + 'Shower-3.jpg', BASE + 'Shower-4.jpg', BASE + 'shower-8.jpeg',
-      BASE + 'Shower-6.jpeg', BASE + 'Shower-7.jpeg',
-      BASE + 'Enclosure-20.jpg', BASE + 'Enclosure-21.jpeg', BASE + 'Enclosure-22.jpeg',
-      BASE + 'Enclosure-10.jpg', BASE + 'REXWOOD-enclosure-photo.jpg',
-      BASE + 'ALBA-office-frame-3.png',
-      BASE + 'Enclosure-13.jpg', BASE + 'Enclosure-14.jpg', BASE + 'Enclosure-15.jpg',
-      BASE + 'Curtainwall-lobby-enclosure-1.png', BASE + 'curtain-wall-installed-1.png',
-      BASE + 'Enclosure-19.jpeg',
     ],
   },
   {
     label: 'METAL WORK',
     images: [
       ...metalworkImgs,
-      BASE + 'Metal-1.jpg', BASE + 'Metal-2.jpg', BASE + 'Metal-3.jpg',
-      BASE + 'Metal-4.jpg', BASE + 'Metal-5.jpg', BASE_2026_04 + 'mono-beam.jpg',
-      BASE + 'Metal-7.jpg', BASE + 'Metal-8.jpg', BASE + 'Metal-9.jpg',
-      BASE + 'Metal-10.jpg', BASE + 'Metal-11.jpg', BASE + 'Metal-12.jpg',
-      BASE + 'Metal-13.jpg', BASE + 'Metal-14.jpg', BASE + 'Metal-15.jpg',
-      BASE + 'Metal-16.jpg', BASE + 'Metal-17.jpg', BASE + 'Metal-18.jpg',
-      BASE + 'Metal-19.jpg', BASE + 'Metal-20.jpg', BASE + 'Metal-21.jpg',
-      BASE + 'Metal-22.jpg', BASE + 'Metal-23.jpg', BASE + 'Metal-24.jpg',
-      BASE + 'Metal-25.jpg', BASE + 'Metal-26.jpg', BASE + 'Metal-27.jpg',
-      BASE + 'Metal-28.jpg', BASE + 'Metal-29.jpg', BASE + 'Metal-30.jpg',
-      BASE + 'Metal-31.jpg', BASE + 'Metal-32.jpg', BASE + 'Metal-33.jpg',
-      BASE + 'Metal-34.jpg', BASE + 'Metal-35.jpg', BASE + 'Metal-36.jpg',
-      BASE + 'Metal-37.jpg', BASE + 'Metal-38.jpg', BASE + 'Metal-39.jpg',
-      BASE + 'Metal-40.jpg',
     ],
   },
 ]
@@ -136,7 +95,7 @@ function GalleryCategory({ category }) {
 
   return (
     <div ref={ref}>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
         {category.images.map((img, i) => (
           <motion.button
             key={i}
@@ -210,9 +169,6 @@ export default function Projects() {
           />
         </div>
       </section>
-
-      <HowWeWork />
-      <CertifiedSection />
     </main>
   )
 }

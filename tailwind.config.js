@@ -12,7 +12,7 @@ export default {
       },
       colors: {
         cgr: {
-          black: '#0a0a0a',
+          black: '#000000',
           dark: '#111111',
           gray: '#1a1a1a',
           mid: '#333333',
